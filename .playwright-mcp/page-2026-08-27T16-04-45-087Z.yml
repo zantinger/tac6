@@ -1,0 +1,75 @@
+- generic [ref=e3]:
+  - heading "Natural Language SQL Interface" [level=1] [ref=e4]
+  - generic [ref=e5]:
+    - textbox "Ask a question about your data... (e.g., 'Show me users who signed up last week')" [ref=e6]
+    - generic [ref=e7]:
+      - generic [ref=e8]:
+        - button "Query" [ref=e9] [cursor=pointer]
+        - button "Upload Data" [ref=e10] [cursor=pointer]
+      - button "Generate Random Query" [ref=e11] [cursor=pointer]
+  - generic [ref=e12]:
+    - generic [ref=e72]: Table "events" created successfully with 10 rows!
+    - heading "Available Tables" [level=3] [ref=e13]
+    - generic [ref=e14]:
+      - generic [ref=e73]:
+        - generic [ref=e74]:
+          - generic [ref=e75]:
+            - generic [ref=e76]: users
+            - generic [ref=e77]: 20 rows, 6 columns
+          - button "×" [ref=e78] [cursor=pointer]
+        - generic [ref=e79]:
+          - generic [ref=e80]: id🔢 INTEGER
+          - generic [ref=e81]: name📝 TEXT
+          - generic [ref=e82]: email📝 TEXT
+          - generic [ref=e83]: signup_date📝 TEXT
+          - generic [ref=e84]: age🔢 INTEGER
+          - generic [ref=e85]: city📝 TEXT
+      - generic [ref=e86]:
+        - generic [ref=e87]:
+          - generic [ref=e88]:
+            - generic [ref=e89]: products
+            - generic [ref=e90]: 32 rows, 6 columns
+          - button "×" [ref=e91] [cursor=pointer]
+        - generic [ref=e92]:
+          - generic [ref=e93]: product_id🔢 INTEGER
+          - generic [ref=e94]: product_name📝 TEXT
+          - generic [ref=e95]: category📝 TEXT
+          - generic [ref=e96]: price💯 REAL
+          - generic [ref=e97]: stock_quantity🔢 INTEGER
+          - generic [ref=e98]: last_restocked📝 TEXT
+      - generic [ref=e99]:
+        - generic [ref=e100]:
+          - generic [ref=e101]:
+            - generic [ref=e102]: events
+            - generic [ref=e103]: 10 rows, 29 columns
+          - button "×" [ref=e104] [cursor=pointer]
+        - generic [ref=e105]:
+          - generic [ref=e106]: event_id📝 TEXT
+          - generic [ref=e107]: timestamp📝 TEXT
+          - generic [ref=e108]: user__id🔢 INTEGER
+          - generic [ref=e109]: user__name📝 TEXT
+          - generic [ref=e110]: user__email📝 TEXT
+          - generic [ref=e111]: user__tier📝 TEXT
+          - generic [ref=e112]: action__type📝 TEXT
+          - generic [ref=e113]: action__device📝 TEXT
+          - generic [ref=e114]: action__success🔢 INTEGER
+          - generic [ref=e115]: metadata__ip📝 TEXT
+          - generic [ref=e116]: metadata__user_agent📝 TEXT
+          - generic [ref=e117]: metadata__session_id📝 TEXT
+          - generic [ref=e118]: action__amount💯 REAL
+          - generic [ref=e119]: action__currency📝 TEXT
+          - generic [ref=e120]: action__items_0__id📝 TEXT
+          - generic [ref=e121]: action__items_0__name📝 TEXT
+          - generic [ref=e122]: action__items_0__price💯 REAL
+          - generic [ref=e123]: action__page📝 TEXT
+          - generic [ref=e124]: action__duration💯 REAL
+          - generic [ref=e125]: action__query📝 TEXT
+          - generic [ref=e126]: action__results_count💯 REAL
+          - generic [ref=e127]: action__error📝 TEXT
+          - generic [ref=e128]: action__element📝 TEXT
+          - generic [ref=e129]: action__product_id📝 TEXT
+          - generic [ref=e130]: action__filters__price_range📝 TEXT
+          - generic [ref=e131]: action__filters__brand📝 TEXT
+          - generic [ref=e132]: action__items_1__id📝 TEXT
+          - generic [ref=e133]: action__items_1__name📝 TEXT
+          - generic [ref=e134]: action__items_1__price💯 REAL
