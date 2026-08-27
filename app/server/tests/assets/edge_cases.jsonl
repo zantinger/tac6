@@ -1,0 +1,7 @@
+{"id": 1, "name": "empty collections", "tags": [], "settings": {}, "note": null, "enabled": true}
+{"id": 2, "name": "populated collections", "tags": ["alpha", "beta"], "settings": {"theme": "dark"}, "note": "has a note", "enabled": false}
+{"id": 3, "name": "mixed types", "score": 42, "enabled": true}
+{"id": 4, "name": "mixed types again", "score": "forty-two", "enabled": false}
+{"deep": {"level_two": {"level_three": {"level_four": {"value": "bottom"}}}}}
+{"id": 6, "name": "list of objects", "items": [{"sku": "a-1", "qty": 2}, {"sku": "b-2", "qty": 5}], "enabled": true}
+{"id": 7, "name": "last line only field", "enabled": true, "final_only": "appears just once"}

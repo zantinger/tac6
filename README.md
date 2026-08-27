@@ -5,7 +5,7 @@ A web application that converts natural language queries to SQL using AI, built 
 ## Features
 
 - 🗣️ Natural language to SQL conversion using OpenAI or Anthropic
-- 📁 Drag-and-drop file upload (.csv and .json)
+- 📁 Drag-and-drop file upload (.csv, .json, and .jsonl)
 - 📊 Interactive table results display
 - 🔒 SQL injection protection
 - ⚡ Fast development with Vite and uv
@@ -77,12 +77,41 @@ bun run dev
 
 1. **Upload Data**: Click "Upload Data" to open the modal
    - Use sample data buttons for quick testing
-   - Or drag and drop your own .csv or .json files
+   - Or drag and drop your own .csv, .json, or .jsonl files
    - Uploading a file with the same name will overwrite the existing table
 2. **Query Your Data**: Type a natural language query like "Show me all users who signed up last week"
    - Press `Cmd+Enter` (Mac) or `Ctrl+Enter` (Windows/Linux) to run the query
 3. **View Results**: See the generated SQL and results in a table format
 4. **Manage Tables**: Click the × button on any table to remove it
+
+### JSONL Support
+
+A `.jsonl` file (one JSON object per line) becomes exactly one table, just like a `.csv`.
+Because SQLite tables are flat, nested structures are flattened into one column per leaf value:
+
+| JSONL value | Generated column(s) |
+| --- | --- |
+| `{"user": {"profile": {"name": "John"}}}` | `user__profile__name` |
+| `{"items": ["a", "b"]}` | `items_0`, `items_1` |
+| `{"tags": [{"name": "t1"}]}` | `tags_0__name` |
+| `{"tags": []}` or `{"settings": {}}` | `tags` / `settings` with a `NULL` value |
+
+Details worth knowing:
+
+- **The whole file is scanned before the table is created.** The column set is the union of
+  every field on every line, so a field that appears only on the last line is still a column —
+  rows that lack it hold `NULL` instead of the upload failing or dropping data.
+- **Column order is deterministic**, following the order fields first appear in the file.
+- **Every line must be a JSON object.** A bare scalar or array line fails with a
+  line-numbered error rather than creating a nameless column.
+- **Colliding column names are de-duplicated** (`"Name"` and `"name"` become `name` and
+  `name_2`), so keys that differ only by case or separator don't break the upload.
+- **Both delimiters are configurable** in `app/server/core/constants.py`
+  (`NESTED_DELIMITER = "__"`, `LIST_INDEX_DELIMITER = "_"`). Changing them there changes
+  every generated column name with no other code edit.
+- **Known ambiguity:** a literal key `"a__b"` is indistinguishable from nested
+  `{"a": {"b": ...}}`, and a literal key `"items_0"` collides with index 0 of an `items`
+  list. Such collisions are de-duplicated rather than escaped, keeping the common case readable.
 
 ## Development
 
@@ -122,7 +151,7 @@ bun run preview            # Preview production build
 
 ## API Endpoints
 
-- `POST /api/upload` - Upload CSV/JSON file
+- `POST /api/upload` - Upload CSV/JSON/JSONL file
 - `POST /api/query` - Process natural language query
 - `GET /api/schema` - Get database schema
 - `POST /api/insights` - Generate column insights
@@ -179,7 +208,7 @@ uv run pytest tests/test_sql_injection.py -v
 ### Additional Security Features
 
 - CORS configured for local development only
-- File upload validation (CSV and JSON only)
+- File upload validation (CSV, JSON, and JSONL only)
 - Comprehensive error logging without exposing sensitive data
 - Database operations are isolated with proper connection handling
 
