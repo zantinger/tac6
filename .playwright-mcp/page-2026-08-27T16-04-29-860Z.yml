@@ -1,0 +1,70 @@
+- generic [ref=e3]:
+  - heading "Natural Language SQL Interface" [level=1] [ref=e4]
+  - generic [ref=e5]:
+    - textbox "Ask a question about your data... (e.g., 'Show me users who signed up last week')" [ref=e6]
+    - generic [ref=e7]:
+      - generic [ref=e8]:
+        - button "Query" [ref=e9] [cursor=pointer]
+        - button "Upload Data" [active] [ref=e10] [cursor=pointer]
+      - button "Generate Random Query" [ref=e11] [cursor=pointer]
+  - generic [ref=e12]:
+    - heading "Available Tables" [level=3] [ref=e13]
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - generic [ref=e16]:
+          - generic [ref=e17]:
+            - generic [ref=e18]: users
+            - generic [ref=e19]: 20 rows, 6 columns
+          - button "×" [ref=e20] [cursor=pointer]
+        - generic [ref=e21]:
+          - generic [ref=e22]: id🔢 INTEGER
+          - generic [ref=e23]: name📝 TEXT
+          - generic [ref=e24]: email📝 TEXT
+          - generic [ref=e25]: signup_date📝 TEXT
+          - generic [ref=e26]: age🔢 INTEGER
+          - generic [ref=e27]: city📝 TEXT
+      - generic [ref=e28]:
+        - generic [ref=e29]:
+          - generic [ref=e30]:
+            - generic [ref=e31]: products
+            - generic [ref=e32]: 32 rows, 6 columns
+          - button "×" [ref=e33] [cursor=pointer]
+        - generic [ref=e34]:
+          - generic [ref=e35]: product_id🔢 INTEGER
+          - generic [ref=e36]: product_name📝 TEXT
+          - generic [ref=e37]: category📝 TEXT
+          - generic [ref=e38]: price💯 REAL
+          - generic [ref=e39]: stock_quantity🔢 INTEGER
+          - generic [ref=e40]: last_restocked📝 TEXT
+  - generic [ref=e42]:
+    - generic [ref=e43]:
+      - heading "Upload Data" [level=2] [ref=e44]
+      - button "×" [ref=e45] [cursor=pointer]
+    - generic [ref=e46]:
+      - generic [ref=e47]:
+        - heading "Quick Start with Sample Data" [level=3] [ref=e48]
+        - generic [ref=e49]:
+          - button "👥 Users Data 20 users with signup dates" [ref=e50] [cursor=pointer]:
+            - generic [ref=e51]: 👥
+            - generic [ref=e52]:
+              - strong [ref=e53]: Users Data
+              - generic [ref=e54]: 20 users with signup dates
+          - button "📦 Product Inventory 32 products with prices" [ref=e55] [cursor=pointer]:
+            - generic [ref=e56]: 📦
+            - generic [ref=e57]:
+              - strong [ref=e58]: Product Inventory
+              - generic [ref=e59]: 32 products with prices
+          - button "📊 Event Analytics 10 events with nested data" [ref=e60] [cursor=pointer]:
+            - generic [ref=e61]: 📊
+            - generic [ref=e62]:
+              - strong [ref=e63]: Event Analytics
+              - generic [ref=e64]: 10 events with nested data
+      - generic [ref=e65]: or
+      - generic [ref=e66]:
+        - paragraph [ref=e67]: Drag and drop .csv, .json, or .jsonl files here
+        - button "Browse Files" [ref=e68] [cursor=pointer]
+      - paragraph [ref=e69]:
+        - text: "JSONL: nested fields become"
+        - code [ref=e70]: user__name
+        - text: ", list items become"
+        - code [ref=e71]: items_0

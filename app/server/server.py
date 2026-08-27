@@ -71,20 +71,21 @@ os.makedirs("db", exist_ok=True)
 async def upload_file(file: UploadFile = File(...)) -> FileUploadResponse:
     """Upload and convert .json, .jsonl or .csv file to SQLite table"""
     try:
-        # Validate file type
-        if not file.filename.endswith(('.csv', '.json', '.jsonl')):
+        # Validate file type (case-insensitively, so DATA.JSONL is accepted)
+        filename = file.filename.lower()
+        if not filename.endswith(('.csv', '.json', '.jsonl')):
             raise HTTPException(400, "Only .csv, .json, and .jsonl files are supported")
-        
+
         # Generate table name from filename
-        table_name = file.filename.rsplit('.', 1)[0].lower().replace(' ', '_')
-        
+        table_name = filename.rsplit('.', 1)[0].replace(' ', '_')
+
         # Read file content
         content = await file.read()
-        
+
         # Convert to SQLite based on file type
-        if file.filename.endswith('.csv'):
+        if filename.endswith('.csv'):
             result = convert_csv_to_sqlite(content, table_name)
-        elif file.filename.endswith('.jsonl'):
+        elif filename.endswith('.jsonl'):
             result = convert_jsonl_to_sqlite(content, table_name)
         else:
             result = convert_json_to_sqlite(content, table_name)

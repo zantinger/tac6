@@ -1,0 +1,83 @@
+$uv run ./adws/adw_plan.py 1
+
+Installed 6 packages in 43ms
+Created new ADW ID and state: 5c700c17
+ADW Logger initialized - ID: 5c700c17
+ADW Plan starting - ID: 5c700c17, Issue: 1
+Successfully posted comment to issue #1
+Successfully posted comment to issue #1
+Saved prompt to: /Users/michael_zant/projects/tutorials/tac/tac-6/agents/5c700c17/issue_classifier/prompts/classify_issue.txt
+Output saved to: /Users/michael_zant/projects/tutorials/tac/tac-6/agents/5c700c17/issue_classifier/raw_output.jsonl
+Created JSON file: /Users/michael_zant/projects/tutorials/tac/tac-6/agents/5c700c17/issue_classifier/raw_output.json
+Issue classified as: /feature
+Successfully posted comment to issue #1
+Saved prompt to: /Users/michael_zant/projects/tutorials/tac/tac-6/agents/5c700c17/branch_generator/prompts/generate_branch_name.txt
+Output saved to: /Users/michael_zant/projects/tutorials/tac/tac-6/agents/5c700c17/branch_generator/raw_output.jsonl
+Created JSON file: /Users/michael_zant/projects/tutorials/tac/tac-6/agents/5c700c17/branch_generator/raw_output.json
+Generated branch name: feature-issue-1-adw-5c700c17-add-jsonl-file-upload
+Working on branch: feature-issue-1-adw-5c700c17-add-jsonl-file-upload
+Successfully posted comment to issue #1
+Building implementation plan
+Successfully posted comment to issue #1
+Saved prompt to: /Users/michael_zant/projects/tutorials/tac/tac-6/agents/5c700c17/sdlc_planner/prompts/feature.txt
+Output saved to: /Users/michael_zant/projects/tutorials/tac/tac-6/agents/5c700c17/sdlc_planner/raw_output.jsonl
+Created JSON file: /Users/michael_zant/projects/tutorials/tac/tac-6/agents/5c700c17/sdlc_planner/raw_output.json
+Successfully posted comment to issue #1
+Getting plan file path
+Plan file created: specs/issue-1-adw-5c700c17-sdlc_planner-add-jsonl-file-upload.md
+Successfully posted comment to issue #1
+Creating plan commit
+Saved prompt to: /Users/michael_zant/projects/tutorials/tac/tac-6/agents/5c700c17/sdlc_planner_committer/prompts/commit.txt
+Output saved to: /Users/michael_zant/projects/tutorials/tac/tac-6/agents/5c700c17/sdlc_planner_committer/raw_output.jsonl
+Created JSON file: /Users/michael_zant/projects/tutorials/tac/tac-6/agents/5c700c17/sdlc_planner_committer/raw_output.json
+Created commit message: sdlc_planner: feature: add plan for jsonl file upload support
+Committed plan: sdlc_planner: feature: add plan for jsonl file upload support
+Successfully posted comment to issue #1
+Pushed branch: feature-issue-1-adw-5c700c17-add-jsonl-file-upload
+Saved prompt to: /Users/michael_zant/projects/tutorials/tac/tac-6/agents/5c700c17/pr_creator/prompts/pull_request.txt
+Output saved to: /Users/michael_zant/projects/tutorials/tac/tac-6/agents/5c700c17/pr_creator/raw_output.jsonl
+Created JSON file: /Users/michael_zant/projects/tutorials/tac/tac-6/agents/5c700c17/pr_creator/raw_output.json
+Created pull request: https://github.com/zantinger/tac6/pull/2
+Created PR: https://github.com/zantinger/tac6/pull/2
+Successfully posted comment to issue #1
+Planning phase completed successfully
+Successfully posted comment to issue #1
+Successfully posted comment to issue #1
+
+$uv run ./adws/adw_build.py 1 5c700c17
+
+Installed 6 packages in 43ms
+ADW Logger initialized - ID: 5c700c17
+🔍 Found existing state from /Users/michael_zant/projects/tutorials/tac/tac-6/agents/5c700c17/adw_state.json
+State: {
+  "adw_id": "5c700c17",
+  "issue_number": "1",
+  "branch_name": "feature-issue-1-adw-5c700c17-add-jsonl-file-upload",
+  "plan_file": "specs/issue-1-adw-5c700c17-sdlc_planner-add-jsonl-file-upload.md",
+  "issue_class": "/feature"
+}
+Successfully posted comment to issue #1
+ADW Logger initialized - ID: 5c700c17
+ADW Build starting - ID: 5c700c17, Issue: 1
+Checked out branch: feature-issue-1-adw-5c700c17-add-jsonl-file-upload
+Using plan file: specs/issue-1-adw-5c700c17-sdlc_planner-add-jsonl-file-upload.md
+Successfully posted comment to issue #1
+Implementing solution
+Successfully posted comment to issue #1
+Saved prompt to: /Users/michael_zant/projects/tutorials/tac/tac-6/agents/5c700c17/sdlc_implementor/prompts/implement.txt
+Output saved to: /Users/michael_zant/projects/tutorials/tac/tac-6/agents/5c700c17/sdlc_implementor/raw_output.jsonl
+Created JSON file: /Users/michael_zant/projects/tutorials/tac/tac-6/agents/5c700c17/sdlc_implementor/raw_output.json
+Successfully posted comment to issue #1
+Fetching issue data for commit message
+Creating implementation commit
+Saved prompt to: /Users/michael_zant/projects/tutorials/tac/tac-6/agents/5c700c17/sdlc_implementor_committer/prompts/commit.txt
+Output saved to: /Users/michael_zant/projects/tutorials/tac/tac-6/agents/5c700c17/sdlc_implementor_committer/raw_output.jsonl
+Created JSON file: /Users/michael_zant/projects/tutorials/tac/tac-6/agents/5c700c17/sdlc_implementor_committer/raw_output.json
+Created commit message: `sdlc_implementor: feature: add jsonl file upload support`
+Committed implementation: `sdlc_implementor: feature: add jsonl file upload support`
+Successfully posted comment to issue #1
+Pushed branch: feature-issue-1-adw-5c700c17-add-jsonl-file-upload
+Found existing PR: https://github.com/zantinger/tac6/pull/2
+Successfully posted comment to issue #1
+Implementation phase completed successfully
+Successfully posted comment to issue #1

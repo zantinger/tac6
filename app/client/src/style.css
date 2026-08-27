@@ -256,6 +256,20 @@ h2 {
   color: var(--text-secondary);
 }
 
+.upload-hint {
+  margin: 0.75rem 0 0 0;
+  font-size: 0.813rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.upload-hint code {
+  font-family: 'Courier New', monospace;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 0.1rem 0.3rem;
+  border-radius: 4px;
+}
+
 .tables-list {
   margin-top: 1rem;
 }
